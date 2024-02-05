@@ -42,7 +42,7 @@ const SearchSection = ({myKey, value}) => {
     }
 
     const fetchData = async () => {
-        return fetch(`http://localhost:8080/reviews/search?${myKey}=${value}`) 
+        return fetch(`https://reviewer-kappa.vercel.app/reviews/search?${myKey}=${value}`) 
                 .then((res) => res.json()) 
                 .then((result) => setProducts(result)) 
     };

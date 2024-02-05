@@ -34,7 +34,7 @@ const SignupSection = ({src}) => {
             password: password,
             role: ["user"]
           };
-          const response = await fetch("http://localhost:8080/signup", {
+          const response = await fetch("https://reviewer-kappa.vercel.app/signup", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
