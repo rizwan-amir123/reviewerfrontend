@@ -22,7 +22,7 @@ const LoginSection = ({src, user, setUsername}) => {
             email: emailLogin,
             password: passwordLogin
           };
-          const response = await fetch("https://reviewer-kappa.vercel.app/login", {
+          const response = await fetch("http://localhost:8080/login", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -35,9 +35,9 @@ const LoginSection = ({src, user, setUsername}) => {
           else {
             console.log("Login Successful!");
             const fetchData = async () => {
-              fetch(`http://localhost:8080/user/get?email=${emailLogin}`)
+                await fetch(`http://localhost:8080/user/get?email=${emailLogin}`)
                   .then((res) => res.json()) 
-                  .then((result) => {setUsername(result.username); console.log(result)})
+                  .then((result) => {setUsername(result[0].username); console.log("res:",result.username)})
             }
             fetchData();
             console.log("here")
@@ -54,7 +54,6 @@ const LoginSection = ({src, user, setUsername}) => {
       <div className="grid md:grid-cols-2 items-center justify-center md:justify-between">
         <div className="px-8 pt-6 pb-8 mb-4">
             <p className="text-6xl mb-8">Login</p>
-            <p>User:{user}</p>
             <div className="mb-4">
                 <label className="block text-md font-semibold text-pink-200 mb-2" htmlFor="emailLogin">
                 Email

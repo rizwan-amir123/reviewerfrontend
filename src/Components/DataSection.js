@@ -58,11 +58,11 @@ const DataSection = () => {
             reviewText: reviewText,
             summary: summary,
             image: image_arr,
-            verified: verified,
+            verified: Boolean(verified),
             reviewerID: reviewerID,
             asin: productID,
             reviewerName: reviewerName,
-            unixReviewTime: time,
+            unixReviewTime: time
         };
         const postData = async() => {
             const response = await fetch("http://localhost:8080/reviews/add/", {

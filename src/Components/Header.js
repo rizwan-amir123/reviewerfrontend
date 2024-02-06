@@ -15,7 +15,14 @@ export default function Header({src}) {
       </Link>
       
       <div className="flex items-center justify-center space-x-5">
-      {user ? <p>user</p> : <Link to="/login">
+      {user ? (
+      <div className="flex space-x-3">
+        <p className="mt-1 text-white">{user}</p>
+        <button onClick={() => setUsername(null)}className="text-md rounded-lg py-1 px-3 border-solid border-white border-2 font-medium 
+          hover:bg-gradient-to-r from-[#581381] to-[#F5A1E8] transition ease-in duration-300
+          hover:text-pink-200 text-white">Logout
+        </button>
+      </div>) : <Link to="/login">
         <div className="text-md rounded-lg py-1 px-3 border-solid border-white border-2 font-medium 
         hover:bg-gradient-to-r from-[#581381] to-[#F5A1E8] transition ease-in duration-300
         hover:text-pink-200 text-white">Login
