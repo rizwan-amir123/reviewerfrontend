@@ -6,6 +6,7 @@ const SignupSection = ({src}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [showError, setShowError] = useState(false)
 
     const handleNameInput = (e) => {
       setName(e.target.value);
@@ -40,7 +41,7 @@ const SignupSection = ({src}) => {
             headers: {
               "content-type": "application/json",
             }
-          }).catch((e) => console.log(e));
+          }).catch((e) => {console.log(e); alert("an error occured")});
           return response.json();
         };
         postData();
@@ -104,6 +105,7 @@ const SignupSection = ({src}) => {
                 By signing up, you agree to the <a className="text-pink-500 underline 
                 font-semibold hover:text-pink-600" href="/#">Terms of Service and Privacy Policy </a>
                 </p>
+                {showError ? <p className="rounded-lg text-pink-500 py-2 px-2 mt-2 bg-pink-200">An Error Occured!</p>: null}
             </div>
             <div className="w-lg">
                 <img

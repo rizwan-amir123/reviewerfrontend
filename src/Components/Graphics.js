@@ -22,8 +22,6 @@ const Graphics = () => {
     const [showTimeGraph, setShowTimeGraph] = useState(false)
     const [showUserGraph, setShowUserGraph] = useState(true)
 
-    const [reviewerID, setReviewerID] = useState("")
-
     const fetchData = async () => {
         fetch(`https://reviewer-kappa.vercel.app/reviews/count?overall=5`) 
             .then((res) => res.json()) 

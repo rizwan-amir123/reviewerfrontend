@@ -22,7 +22,7 @@ const LoginSection = ({src, user, setUsername}) => {
             email: emailLogin,
             password: passwordLogin
           };
-          const response = await fetch("http://localhost:8080/login", {
+          const response = await fetch("https://reviewer-kappa.vercel.app//login", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -35,7 +35,7 @@ const LoginSection = ({src, user, setUsername}) => {
           else {
             console.log("Login Successful!");
             const fetchData = async () => {
-                await fetch(`http://localhost:8080/user/get?email=${emailLogin}`)
+                await fetch(`https://reviewer-kappa.vercel.app/user/get?email=${emailLogin}`)
                   .then((res) => res.json()) 
                   .then((result) => {setUsername(result[0].username); console.log("res:",result.username)})
             }

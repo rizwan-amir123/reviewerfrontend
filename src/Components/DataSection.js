@@ -14,10 +14,11 @@ const DataSection = () => {
     const [reviewText, setReviewText] = useState("") 
     const [verified, setVerified] = useState(false)
     const [image, setImage] = useState("")
+    
 
     const handleDelete = (i) => {
       console.log(reviewerIDDelete)
-      fetch("http://localhost:3000/reviews/delete/", {
+      fetch("https://reviewer-kappa.vercel.app/reviews/delete/", {
         method: 'DELETE',
         headers: {
             "content-type": "application/json",
@@ -65,7 +66,7 @@ const DataSection = () => {
             unixReviewTime: time
         };
         const postData = async() => {
-            const response = await fetch("http://localhost:8080/reviews/add/", {
+            const response = await fetch("https://reviewer-kappa.vercel.app/reviews/add/", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
